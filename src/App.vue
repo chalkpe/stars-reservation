@@ -3,6 +3,14 @@
     <span>{{ now }}</span>
     <span>현재 한국 앙상블스타즈 <a href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a> 수</span>
     <animated-integer :value="count"></animated-integer>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111450588-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-111450588-1');
+    </script>
     <div class="copy">팬메이드 페이지입니다. (주)카카오게임즈와는 일절 관계없습니다. (c) 2017 <a href="https://twitter.com/amato17">@amato17</a></div>
   </div>
 </template>
