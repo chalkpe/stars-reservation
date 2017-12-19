@@ -68,7 +68,7 @@
 
     height: 100%;
     display: grid;
-    padding-top: 8vw;
+    padding-top: 3vw;
   }
 
   .parent span {
@@ -84,10 +84,11 @@
   }
 
   .copy {
+    opacity: 0.3;
     position: absolute;
     bottom: 0; right: 0; left: 0;
     text-align: center;
-    padding: 0.5vw;
-    font-size: 2vw;
+    padding: 0.2vw;
+    font-size: 1.5vw;
   }
 </style>
