@@ -4,12 +4,19 @@
     <a href="https://github.com/ChalkPE">(c) 2017 ChalkPE</a>
     <a href="https://github.com/ChalkPE/stars-reservation/blob/master/LICENSE">Licensed under MIT</a>
     <a href="https://github.com/ChalkPE/stars-reservation">Fork on GitHub</a>
+    <a @click="$emit('toggle')">{{ dark ? 'Light mode' : 'Dark mode' }}</a>
   </span>
 </template>
 
 <script>
   export default {
-    name: 'Copyright'
+    name: 'Copyright',
+    props: {
+      dark: {
+        type: Boolean,
+        required: true
+      }
+    }
   }
 </script>
 

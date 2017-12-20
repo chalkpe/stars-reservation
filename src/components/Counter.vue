@@ -1,5 +1,5 @@
 <template>
-  <span class="counter">{{ count }}</span>
+  <span class="counter has-shadow">{{ count }}</span>
 </template>
 
 <script>

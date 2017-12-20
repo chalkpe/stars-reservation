@@ -1,10 +1,12 @@
 <template>
-  <div class="parent">
-    <timer></timer>
-    <span>현재 한국 앙상블스타즈 <a class="block" href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a> 수</span>
-    <counter :value="count"></counter>
-    <goal :count="count"></goal>
-    <copyright></copyright>
+  <div id="app" :class="dark && 'dark'">
+    <div class="parent">
+      <timer></timer>
+      <span>현재 한국 앙상블스타즈 <a class="block" href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a> 수</span>
+      <counter :value="count"></counter>
+      <goal :count="count"></goal>
+      <copyright :dark="dark" @toggle="dark = !dark"></copyright>
+    </div>
   </div>
 </template>
 
@@ -20,8 +22,8 @@
     name: 'App',
     components: { Goal, Timer, Counter, Copyright },
 
-    data: () => ({ count: 0 }),
     mounted () { this.update() },
+    data: () => ({ count: 0, dark: false }),
 
     methods: {
       async update () {
@@ -37,16 +39,65 @@
 <style lang="scss">
   @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
-  html, body {
+  $dark: #202020;
+  $light: #fefefe;
+  $highlight: #1abd9d;
+  $secondary: #808080;
+
+  html, body, #app {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     height: 100%;
     overflow: hidden;
 
     display: flex;
     align-items: center;
     justify-content: center;
+  }
 
-    color: #000;
+  #app {
+    color: $dark;
+    background-color: $light;
     font-family: Hanna, sans-serif;
+
+    a {
+      text-decoration: none;
+
+      color: $dark;
+      &:hover { color: $highlight; }
+    }
+
+    a.block {
+      color: $light;
+      padding: 0 0.5vw;
+
+      background-color: $dark;
+      &:hover { background-color: $highlight; }
+    }
+
+    &.dark {
+      color: $light;
+      background-color: $dark;
+
+      a {
+        color: $light;
+        &.block {
+          color: $dark;
+          background-color: $light;
+          &:hover { background-color: $highlight; }
+        }
+      }
+    }
+
+  }
+
+  .secondary {
+    color: $secondary !important;
+  }
+
+  .has-shadow {
+    text-shadow: 0.025em 0.025em 0 $secondary;
   }
 
   .parent {
@@ -56,25 +107,6 @@
       margin: auto;
       font-size: 6vw;
       text-align: center;
-    }
-  }
-
-  a {
-    color: #000;
-    text-decoration: none;
-
-    &:hover {
-      color: #1abd9d;
-    }
-
-    &.block {
-      color: #fff;
-      padding: 0 0.5vw;
-      background-color: #000;
-
-      &:hover {
-        background-color: #1abd9d;
-      }
     }
   }
 </style>

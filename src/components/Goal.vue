@@ -3,7 +3,7 @@
     다음 목표 {{ goal.name }}까지
     {{ (count / goal.count * 100).toFixed(2) }}%
     <br>
-    <i>{{ goal.rewards}}</i>
+    <i class="secondary">{{ goal.rewards }}</i>
   </span>
 </template>
 
@@ -55,10 +55,6 @@
 <style scoped lang="scss">
   .goal {
     font-size: 4vw;
-
-    i {
-      color: #888;
-      font-size: 3vw;
-    }
+    i { font-size: 3vw; }
   }
 </style>
