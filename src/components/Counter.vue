@@ -1,5 +1,5 @@
 <template>
-  <span>{{ value }}</span>
+  <span class="counter">{{ value }}</span>
 </template>
 
 <script>
@@ -48,7 +48,7 @@
 </script>
 
 <style scoped>
-  span {
+  .counter {
     margin-top: 3vw;
     font-size: 24vw;
     font-weight: bold;

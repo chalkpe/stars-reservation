@@ -1,5 +1,5 @@
 <template>
-  <span>{{ now }}</span>
+  <span class="timer">{{ now }}</span>
 </template>
 
 <script>
@@ -21,7 +21,3 @@
     }
   }
 </script>
-
-<style>
-
-</style>

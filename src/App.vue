@@ -3,6 +3,7 @@
     <timer></timer>
     <span>현재 한국 앙상블스타즈 <a class="block" href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a> 수</span>
     <counter :value="count"></counter>
+    <goal :count="count"></goal>
     <copyright></copyright>
   </div>
 </template>
@@ -10,13 +11,14 @@
 <script>
   import axios from 'axios'
 
+  import Goal from './components/Goal.vue'
   import Timer from './components/Timer.vue'
   import Counter from './components/Counter.vue'
   import Copyright from './components/Copyright.vue'
 
   export default {
     name: 'App',
-    components: { Timer, Counter, Copyright },
+    components: { Goal, Timer, Counter, Copyright },
 
     data: () => ({ count: 0 }),
     mounted () { this.update() },
