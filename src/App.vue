@@ -1,9 +1,18 @@
 <template>
   <div class="parent">
     <span>{{ now }}</span>
-    <span>현재 한국 앙상블스타즈 <a href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a> 수</span>
+    <span>
+      현재 한국 앙상블스타즈
+      <a href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a>
+      수
+    </span>
     <animated-integer :value="count"></animated-integer>
-    <div class="copy">팬메이드 페이지입니다. (주)카카오게임즈와는 일절 관계없습니다. (c) 2017 <a href="https://twitter.com/amato17">@amato17</a></div>
+
+    <div class="copy">
+      <a href="https://github.com/ChalkPE/stars-reservation">팬메이드 페이지</a>
+      입니다. (주)카카오게임즈와는 일절 관계없습니다. (c) 2017
+      <a href="https://twitter.com/amato17">@amato17</a>
+    </div>
   </div>
 </template>
 
@@ -15,22 +24,24 @@
     name: 'App',
 
     data: () => ({
-      now: '0000년 00월 00일 00시 00분 00초',
       count: 0,
-      interval: null
+      interval: null,
+      now: '0000년 00월 00일 00시 00분 00초'
     }),
 
     methods: {
       async update () {
-        const res = await axios.get('/data')
+        const { data } = await axios.get('/data')
 
-        this.count = parseInt(res.data)
-        this.now = moment().format('YYYY년 MM월 DD일 HH시 MM분 ss초')
+        this.count = parseInt(data)
+        setTimeout(() => this.update(), 1000)
       }
     },
 
     mounted () {
-      this.interval = setInterval(() => this.update(), 1000)
+      this.update()
+      this.interval = setInterval(() =>
+        (this.now = moment().format('YYYY년 MM월 DD일 HH시 mm분 ss초')), 100)
     },
 
     beforeDestroy () {
