@@ -1,5 +1,5 @@
 <template>
-  <span class="counter">{{ value }}</span>
+  <span class="counter">{{ count }}</span>
 </template>
 
 <script>
@@ -7,10 +7,7 @@
 
   export default {
     name: 'Counter',
-
-    data: () => ({
-      tweeningValue: 0
-    }),
+    data: () => ({ count: 0 }),
 
     props: {
       value: {
@@ -36,9 +33,9 @@
           if (TWEEN.update()) requestAnimationFrame(animate)
         }
 
-        new TWEEN.Tween({ value: startValue })
-          .to({ value: endValue }, 500)
-          .onUpdate(function () { vm.tweeningValue = Math.floor(this.value) })
+        new TWEEN.Tween({ count: startValue })
+          .to({ count: endValue }, 500)
+          .onUpdate(function () { vm.count = this.count.toFixed(0) })
           .start()
 
         animate()
