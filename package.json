@@ -30,6 +30,8 @@
   "devDependencies": {
     "@neutrinojs/vue": "^8.0.13",
     "neutrino": "^8.0.13",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
     "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {

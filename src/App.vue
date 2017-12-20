@@ -1,108 +1,90 @@
 <template>
   <div class="parent">
-    <span>{{ now }}</span>
-    <span>
-      현재 한국 앙상블스타즈
-      <a href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a>
-      수
-    </span>
+    <timer></timer>
+    <span>현재 한국 앙상블스타즈 <a class="block" href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a> 수</span>
     <counter :value="count"></counter>
 
-    <div class="copy">
-      <a href="https://github.com/ChalkPE/stars-reservation">팬메이드 페이지</a>
-      입니다. (주)카카오게임즈와는 일절 관계없습니다. (c) 2017
-      <a href="https://twitter.com/amato17">@amato17</a>
-    </div>
+    <span id="copy">
+      <a href="http://stars.kakaogame.com">팬메이드 페이지입니다. (주)카카오게임즈와는 일절 관계없습니다.</a>
+      <br>
+      <a href="https://twitter.com/amato17">(c) 2017 Chalk</a>
+      <a href="https://github.com/ChalkPE/stars-reservation/blob/master/LICENSE">Licensed under MIT</a>
+      <a href="https://github.com/ChalkPE/stars-reservation">Fork on GitHub</a>
+    </span>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
-  import moment from 'moment'
 
-  import Counter from './Counter.vue'
+  import Timer from './components/Timer.vue'
+  import Counter from './components/Counter.vue'
 
   export default {
     name: 'App',
-    components: { Counter },
+    components: { Timer, Counter },
 
-    data: () => ({
-      count: 0,
-      interval: null,
-      now: '0000년 00월 00일 00시 00분 00초'
-    }),
+    data: () => ({ count: 0 }),
+    mounted () { this.update() },
 
     methods: {
       async update () {
         const { data } = await axios.get('/data')
 
-        this.count = parseInt(data)
+        this.count = parseInt(data, 10)
         setTimeout(() => this.update(), 1000)
       }
-    },
-
-    mounted () {
-      this.update()
-      this.interval = setInterval(() =>
-        (this.now = moment().format('YYYY년 MM월 DD일 HH시 mm분 ss초')), 100)
-    },
-
-    beforeDestroy () {
-      clearInterval(this.interval)
     }
   }
 </script>
 
-<style>
+<style lang="scss">
   @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
-  a {
-    color: black;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #666;
-  }
-
-  span a {
-    color: white;
-    padding: 0 0.5vw;
-    background-color: black;
-  }
-
-  span a:hover {
-    color: white;
-    background-color: #666;
-  }
-
   .parent {
-    color: black;
+    display: grid;
+    height: 100%;
+    padding-top: 3vw;
+
+    color: #000;
     font-family: Hanna, sans-serif;
 
-    height: 100%;
-    display: grid;
-    padding-top: 3vw;
+    span {
+      margin: auto;
+      font-size: 6vw;
+      text-align: center;
+    }
   }
 
-  .parent span {
-    margin: auto;
-    font-size: 6vw;
-    text-align: center;
+  a {
+    color: #000;
+    text-decoration: none;
+
+    &:hover {
+      color: #1abd9d;
+    }
+
+    &.block {
+      color: #fff;
+      padding: 0 0.5vw;
+      background-color: #000;
+
+      &:hover {
+        background-color: #1abd9d;
+      }
+    }
   }
 
-  .parent span:last-of-type {
-    margin-top: 3vw;
-    font-size: 24vw;
-    font-weight: bold;
-  }
-
-  .copy {
-    opacity: 0.3;
+  #copy {
     position: absolute;
     bottom: 0; right: 0; left: 0;
-    text-align: center;
-    padding: 0.2vw;
-    font-size: 1.5vw;
+
+    opacity: 0.33;
+    padding: 0.25vw;
+    font-size: 1vw;
+
+    a + a:before {
+      content: ' ★ ';
+    }
   }
 </style>
