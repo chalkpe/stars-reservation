@@ -6,7 +6,7 @@
       <a href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a>
       수
     </span>
-    <animated-integer :value="count"></animated-integer>
+    <counter :value="count"></counter>
 
     <div class="copy">
       <a href="https://github.com/ChalkPE/stars-reservation">팬메이드 페이지</a>
@@ -20,8 +20,11 @@
   import axios from 'axios'
   import moment from 'moment'
 
+  import Counter from './Counter.vue'
+
   export default {
     name: 'App',
+    components: { Counter },
 
     data: () => ({
       count: 0,
