@@ -37,13 +37,20 @@
 <style lang="scss">
   @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 
-  .parent {
-    display: grid;
+  html, body {
     height: 100%;
-    padding-top: 3vw;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     color: #000;
     font-family: Hanna, sans-serif;
+  }
+
+  .parent {
+    display: grid;
 
     span {
       margin: auto;

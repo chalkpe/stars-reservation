@@ -1,7 +1,6 @@
 <template>
   <span class="copyright">
     <a href="http://stars.kakaogame.com">팬메이드 페이지입니다. (주)카카오게임즈와는 일절 관계없습니다.</a>
-    <br>
     <a href="https://github.com/ChalkPE">(c) 2017 ChalkPE</a>
     <a href="https://github.com/ChalkPE/stars-reservation/blob/master/LICENSE">Licensed under MIT</a>
     <a href="https://github.com/ChalkPE/stars-reservation">Fork on GitHub</a>
@@ -22,7 +21,7 @@
 
     opacity: 0.3;
     padding: 0.5vw;
-    font-size: 16px;
+    font-size: 14px;
 
     a + a:before {
       content: ' ★ ';
