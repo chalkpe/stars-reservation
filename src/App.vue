@@ -3,14 +3,7 @@
     <timer></timer>
     <span>현재 한국 앙상블스타즈 <a class="block" href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a> 수</span>
     <counter :value="count"></counter>
-
-    <span id="copy">
-      <a href="http://stars.kakaogame.com">팬메이드 페이지입니다. (주)카카오게임즈와는 일절 관계없습니다.</a>
-      <br>
-      <a href="https://twitter.com/amato17">(c) 2017 Chalk</a>
-      <a href="https://github.com/ChalkPE/stars-reservation/blob/master/LICENSE">Licensed under MIT</a>
-      <a href="https://github.com/ChalkPE/stars-reservation">Fork on GitHub</a>
-    </span>
+    <copyright></copyright>
   </div>
 </template>
 
@@ -19,10 +12,11 @@
 
   import Timer from './components/Timer.vue'
   import Counter from './components/Counter.vue'
+  import Copyright from './components/Copyright.vue'
 
   export default {
     name: 'App',
-    components: { Timer, Counter },
+    components: { Timer, Counter, Copyright },
 
     data: () => ({ count: 0 }),
     mounted () { this.update() },
@@ -72,19 +66,6 @@
       &:hover {
         background-color: #1abd9d;
       }
-    }
-  }
-
-  #copy {
-    position: absolute;
-    bottom: 0; right: 0; left: 0;
-
-    opacity: 0.33;
-    padding: 0.25vw;
-    font-size: 1vw;
-
-    a + a:before {
-      content: ' ★ ';
     }
   }
 </style>
