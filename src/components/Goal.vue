@@ -1,9 +1,16 @@
 <template>
-  <span class="goal" v-if="goal">
-    다음 목표 {{ goal.name }}까지
-    {{ (count / goal.count * 100).toFixed(2) }}%
-    <br>
-    <i class="secondary">{{ goal.rewards }}</i>
+  <span class="goal">
+    <template v-if="goal">
+      다음 목표 {{ goal.name }}까지
+      {{ (count / goal.count * 100).toFixed(2) }}%
+      <br>
+      <i class="secondary">{{ goal.rewards }}</i>
+    </template>
+
+    <template v-else>
+      Amazing!
+      <audio autoplay src="static/amazing.mp3"></audio>
+    </template>
   </span>
 </template>
 

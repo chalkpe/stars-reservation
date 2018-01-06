@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="dark && 'dark'">
+  <div id="app" :class="{ dark, done }">
     <div class="parent">
       <timer></timer>
       <span>현재 한국 앙상블스타즈 <a class="block" href="https://gameevent.kakao.com/preregistrations/907">사전 예약자</a> 수</span>
@@ -32,7 +32,11 @@
         this.count = parseInt(data, 10)
         setTimeout(() => this.update(), 1000)
       }
-    }
+    },
+
+    computed: {
+      done () { return this.count >= 1000000 }
+    },
   }
 </script>
 
@@ -60,6 +64,13 @@
     color: $dark;
     background-color: $light;
     font-family: Hanna, sans-serif;
+
+    &.done {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("static/wataru.png");
+    }
 
     a {
       text-decoration: none;
