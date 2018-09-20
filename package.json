@@ -6,7 +6,9 @@
   "scripts": {
     "start": "neutrino start",
     "build": "neutrino build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,8 @@
     "axios": "^0.17.1",
     "moment": "^2.20.1",
     "tween.js": "^16.6.0",
-    "vue": "^2.5.11"
-  }
+    "vue": "^2.5.11",
+    "snyk": "^1.96.0"
+  },
+  "snyk": true
 }
