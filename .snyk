@@ -5,16 +5,16 @@ ignore: {}
 patch:
   'npm:tunnel-agent:20170305':
     - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-gifsicle > gifsicle > bin-build > download > caw > tunnel-agent':
-        patched: '2018-06-25T22:19:10.213Z'
-    - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-gifsicle > gifsicle > bin-wrapper > download > caw > tunnel-agent':
-        patched: '2018-06-25T22:19:10.213Z'
+        patched: '2018-09-25T23:27:01.773Z'
     - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-mozjpeg > mozjpeg > bin-build > download > caw > tunnel-agent':
-        patched: '2018-06-25T22:19:10.213Z'
-    - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-mozjpeg > mozjpeg > bin-wrapper > download > caw > tunnel-agent':
-        patched: '2018-06-25T22:19:10.213Z'
-    - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-pngquant > pngquant-bin > bin-wrapper > download > caw > tunnel-agent':
-        patched: '2018-06-25T22:19:10.213Z'
+        patched: '2018-09-25T23:27:01.773Z'
     - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-webp > cwebp-bin > bin-build > download > caw > tunnel-agent':
-        patched: '2018-06-25T22:19:10.213Z'
+        patched: '2018-09-25T23:27:01.773Z'
+    - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-gifsicle > gifsicle > bin-wrapper > download > caw > tunnel-agent':
+        patched: '2018-09-25T23:27:01.773Z'
+    - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-mozjpeg > mozjpeg > bin-wrapper > download > caw > tunnel-agent':
+        patched: '2018-09-25T23:27:01.773Z'
+    - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-pngquant > pngquant-bin > bin-wrapper > download > caw > tunnel-agent':
+        patched: '2018-09-25T23:27:01.773Z'
     - '@neutrinojs/web > @neutrinojs/minify > @neutrinojs/image-minify > imagemin-webp > cwebp-bin > bin-wrapper > download > caw > tunnel-agent':
-        patched: '2018-06-25T22:19:10.213Z'
+        patched: '2018-09-25T23:27:01.773Z'
